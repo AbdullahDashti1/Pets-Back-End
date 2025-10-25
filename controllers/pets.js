@@ -53,4 +53,13 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:petId', async (req, res) => {
+  try {
+    throw new Error('This is a test error'); // Add this temporary code
+    // Try block
+  } catch (err) {
+    // Catch block
+  }
+});
+
 module.exports = router;
