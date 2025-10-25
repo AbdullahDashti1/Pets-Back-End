@@ -5,6 +5,9 @@ const app = express();
 const mongoose = require('mongoose');
 const logger = require('morgan');
 
+// Controllers
+const petsController = require('./controllers/pets');
+
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
@@ -13,6 +16,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(express.json());
 app.use(logger('dev'));
+app.use('/pets', petsController);
 
 app.listen(3000, () => {
   console.log('The express app is ready!');
